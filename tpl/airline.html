@@ -1,0 +1,32 @@
+<h1>Airline</h1>
+
+<div class="row" style="margin: 10px">
+	<button class="btn btn-primary pull-right" ng-click="addAirline()"><i class="glyphicon glyphicon-plus"></i> Add Airline </button>
+</div>
+
+
+<table class="table">
+	<tr>
+		<th>No</th>
+		<th>Name</th>
+		<th>Reg. Date</th>
+		<th>Address</th>
+		<th>Phone</th>
+		<th>Point</th>
+		<th>Status</th>
+		<th>Action</th>
+	</tr>
+	<tr ng-repeat="a in airlines">
+		<td>{{$index+1}}</td>
+		<td>{{a.name}}</td>
+		<td>{{a.registerDate | date: 'dd MMM yyyy'}}</td>
+		<td>{{a.address}}</td>
+		<td>{{a.phone}}</td>
+		<td>{{a.point}}</td>
+		<td><i class="glyphicon" ng-class="a.status ? 'glyphicon-plus' : 'glyphicon-minus'"></i></td>
+		<td>
+			<button class="btn btn-sm btn-warning" ng-click="edit(a.id)">Edit</button>
+			<button class="btn btn-sm btn-danger" ng-click="delete(a.id)">Delete</button>
+		</td>
+	</tr>
+</table>
